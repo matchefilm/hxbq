@@ -1,0 +1,278 @@
+<!-- 版权所有 © 2025 [matchefilm]. 保留所有权利。该代码受版权法保护，未经授权，不得用于商业目的。 -->
+<!doctype html>
+<html lang="zh-CN">
+	<head> 
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>华夏兵棋</title> 
+		<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background-color: #f7f7f7;
+		}
+		.container {
+			text-align: center;
+			padding: 20px;
+			background-color: white;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			width: 80%;
+			max-width: 600px;
+			margin: 20px 0;
+		}
+		.header {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.header img {
+			width: 100px;
+			height: 100px;
+			margin-right: 20px;
+			border-radius: 8px;
+		}
+		h1 {
+			color: #333;
+			margin: 0;
+		}
+		h3 {
+			color: #666;
+			margin: 10px 0;
+		}
+		p {
+			color: #666;
+			margin: 10px 0;
+		}
+		.btn-group {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-top: 20px;
+			gap: 10px;
+		}
+		.download-btn, .update-btn, .matches-btn, .donate-btn, .more-btn {
+			display: inline-block;
+			padding: 10px 20px;
+			text-decoration: none;
+			border-radius: 5px;
+			font-size: 16px;
+			color: white;
+		}
+		.download-btn {
+			background-color: #007bff;
+			margin-right: 10px;
+		}
+		.download-btn:hover {
+			background-color: #0056b3;
+		}
+		.update-btn {
+			background-color: #28a745;
+		}
+		.update-btn:hover {
+			background-color: #1e7e34;
+		}
+		.matches-btn {
+			background-color: #17a2b8;
+			margin-top: 10px;
+		}
+		.matches-btn:hover {
+			background-color: #138496;
+		}
+		.donate-btn {
+			background-color: #dc3545;
+			margin-top: 10px;
+			margin-left: 10px;
+		}
+		.donate-btn:hover {
+			background-color: #c82333;
+		}
+		.more-btn {
+			background-color: #6c757d;
+			width: 100%;
+			margin-top: 10px;
+		}
+		.more-btn:hover {
+			background-color: #5a6268;
+		}
+		.carousel-container {
+			width: 100%;
+			overflow: hidden;
+			position: relative;
+			margin-top: 20px;
+		}
+		.carousel {
+			display: flex;
+			transition: transform 0.5s ease;
+		}
+		.carousel img {
+			width: 100%;
+			height: auto;
+			flex-shrink: 0;
+		}
+		.carousel img:not(:last-child) {
+			margin-right: 0;
+		}
+		.carousel-prev, .carousel-next {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background-color: rgba(0, 0, 0, 0.5);
+			color: white;
+			padding: 10px;
+			cursor: pointer;
+			z-index: 10;
+		}
+		.carousel-prev {
+			left: 0;
+		}
+		.carousel-next {
+			right: 0;
+		}
+		.carousel-pagination {
+			display: flex;
+			justify-content: center;
+			margin-top: 10px;
+		}
+		.carousel-pagination span {
+			width: 10px;
+			height: 10px;
+			background-color: rgba(0, 0, 0, 0.5);
+			border-radius: 50%;
+			margin: 0 5px;
+			cursor: pointer;
+		}
+		.carousel-pagination span.active {
+			background-color: #007bff;
+		}
+		.fullscreen {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.8);
+			justify-content: center;
+			align-items: center;
+			z-index: 100;
+		}
+		.fullscreen img {
+			max-width: 90%;
+			max-height: 90%;
+		}
+		.fullscreen-close {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			background-color: #007bff;
+			color: white;
+			padding: 10px;
+			cursor: pointer;
+		}
+	</style> 
+	</head> 
+	<body> 
+		<div class="container"> 
+			<div class="header"> 
+				<img src="cover.jpg" alt="华夏兵棋封面"> 
+				<h1>华夏兵棋</h1> 
+			</div> 
+			<h3>版权作者:诺岩（微信：g18487445025，QQ：1195777123）&nbsp;&nbsp;&nbsp;&nbsp;当前版本:v1.1.2(正式版)</h3> 
+			<p>[华夏兵棋]是一款益智类型的战棋游戏。它可以很好的培养青少年的思维逻辑。</p> 
+			<div class="btn-group"> 
+				<a href="http://47.100.88.110:30005/app.apk" class="download-btn">立即下载</a> 
+				<a href="update.html" class="update-btn">更新日志</a> 
+				<a href="pk.html" class="matches-btn">精彩对局</a> 
+				<a href="zanshang.html" class="donate-btn">赞赏作者</a> 
+				<a href="https://m.bilibili.com/space/439641213" class="more-btn">更多内容</a> 
+			</div> 
+			<div class="carousel-container"> 
+				<div class="carousel" id="carousel"> 
+					<img src="game1.jpg" alt="游戏截图1" class="carousel-item" data-index="0"> 
+					<img src="game2.jpg" alt="游戏截图2" class="carousel-item" data-index="1"> 
+					<img src="game3.jpg" alt="游戏截图3" class="carousel-item" data-index="2"> 
+					<img src="game4.jpg" alt="游戏截图4" class="carousel-item" data-index="3"> 
+					<img src="game5.jpg" alt="游戏截图5" class="carousel-item" data-index="4"> 
+					<img src="game6.jpg" alt="游戏截图6" class="carousel-item" data-index="5"> 
+					<img src="game7.jpg" alt="游戏截图7" class="carousel-item" data-index="6"> 
+					<img src="game8.jpg" alt="游戏截图8" class="carousel-item" data-index="7"> 
+				</div> 
+				<div class="carousel-prev" onclick="changeSlide(-1)">
+					❮
+				</div> 
+				<div class="carousel-next" onclick="changeSlide(1)">
+					❯
+				</div> 
+				<div class="carousel-pagination" id="carousel-pagination"></div> 
+			</div> 
+			<div class="contact-info"> 
+				<h2>作者联系方式</h2> 
+				<p>QQ: 1195777123</p> 
+				<a href="http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&amp;k=sk_bvEjDhJntGuuK68VV2B2Bwlxudwmm&amp;authKey=xTTR2LCw0RFXtDkBRXV2TN1Sa3wWJTQ0sxkTP8WWI7EWhJ5Mhm8IOz2%2BXBCYGi1S&amp;noverify=0&amp;group_code=951259253">华夏兵棋下载群：951259253</a> 
+			</div> 
+			<div class="fullscreen" id="fullscreen"> 
+				<img src="" alt="全屏图片" id="fullscreen-img"> 
+				<div class="fullscreen-close" onclick="closeFullscreen()">
+					×
+				</div> 
+			</div> 
+		</div> 
+		<script>
+		let currentSlide = 0;
+		const slides = document.querySelectorAll('.carousel-item');
+		const totalSlides = slides.length;
+		const pagination = document.getElementById('carousel-pagination');
+
+		function initCarousel() {
+			for (let i = 0; i < totalSlides; i++) {
+				const span = document.createElement('span');
+				span.classList.add('carousel-pagination-item');
+				span.addEventListener('click', () => changeSlide(i - currentSlide));
+				pagination.appendChild(span);
+			}
+			updateCarousel();
+		}
+
+		function updateCarousel() {
+			const offset = -currentSlide * 100;
+			document.getElementById('carousel').style.transform = `translateX(${offset}%)`;
+			const paginationItems = document.querySelectorAll('.carousel-pagination-item');
+			paginationItems.forEach((item, index) => {
+				item.classList.toggle('active', index === currentSlide);
+			});
+		}
+
+		function changeSlide(step) {
+			if (typeof step === 'number') {
+				currentSlide += step;
+			} else {
+				currentSlide = step;
+			}
+			currentSlide = (currentSlide + totalSlides) % totalSlides;
+			updateCarousel();
+		}
+
+		function openFullscreen(imgSrc) {
+			document.getElementById('fullscreen-img').src = imgSrc;
+			document.getElementById('fullscreen').style.display = 'flex';
+		}
+
+		function closeFullscreen() {
+			document.getElementById('fullscreen').style.display = 'none';
+		}
+
+		document.querySelectorAll('.carousel-item').forEach(item => {
+			item.addEventListener('click', () => {
+				openFullscreen(item.src);
+			});
+		});
+
+		initCarousel();
+	</script>  
+	</body>
+</html>

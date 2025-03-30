@@ -1,0 +1,214 @@
+<!-- 版权所有 © 2025 [matchefilm]. 保留所有权利。该代码受版权法保护，未经授权，不得用于商业目的。 -->
+<!doctype html>
+<html lang="zh-CN">
+	<head> 
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>赞赏作者 - 华夏兵棋</title> 
+		<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			background-color: #f7f7f7;
+		}
+		.container {
+			text-align: center;
+			padding: 20px;
+			background-color: white;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			width: 80%;
+			max-width: 600px;
+			margin: 20px 0;
+		}
+		.header {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 20px;
+		}
+		.header img {
+			width: 80px;
+			height: 80px;
+			margin-right: 15px;
+			border-radius: 8px;
+		}
+		h1 {
+			color: #333;
+			margin: 0;
+		}
+		h3 {
+			color: #666;
+			margin: 10px 0;
+		}
+		p {
+			color: #666;
+			margin: 10px 0;
+		}
+		.payment-methods {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-top: 20px;
+			gap: 10px;
+		}
+		.payment-card {
+			width: 100px;
+			text-align: center;
+			background-color: #f9f9f9;
+			border-radius: 5px;
+			padding: 10px;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+		.payment-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+		}
+		.payment-card img {
+			width: 60px;
+			height: 60px;
+			margin-bottom: 10px;
+			border-radius: 5px;
+		}
+		.payment-card p {
+			margin: 0;
+			font-size: 14px;
+		}
+		.rank-section {
+			margin-top: 30px;
+			text-align: left;
+			padding: 0 20px;
+		}
+		.rank-table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 15px;
+		}
+		.rank-table th, .rank-table td {
+			padding: 10px;
+			text-align: center;
+			border-bottom: 1px solid #eee;
+		}
+		.rank-table th {
+			background-color: #f2f2f2;
+			font-weight: bold;
+		}
+		.update-notice {
+			margin-top: 20px;
+			padding: 15px;
+			background-color: #fffde7;
+			border-left: 4px solid #ffeb3b;
+			border-radius: 5px;
+			text-align: center;
+		}
+		.back-btn {
+			display: inline-block;
+			padding: 10px 20px;
+			text-decoration: none;
+			border-radius: 5px;
+			font-size: 16px;
+			color: white;
+			background-color: #6c757d;
+			margin-top: 20px;
+		}
+		.back-btn:hover {
+			background-color: #5a6268;
+		}
+		.fullscreen {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.8);
+			justify-content: center;
+			align-items: center;
+			z-index: 100;
+		}
+		.fullscreen img {
+			max-width: 90%;
+			max-height: 90%;
+		}
+		.fullscreen-close {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			background-color: #007bff;
+			color: white;
+			padding: 10px;
+			cursor: pointer;
+		}
+	</style> 
+	</head> 
+	<body> 
+		<div class="container"> 
+			<div class="header"> 
+				<img src="cover.jpg" alt="华夏兵棋封面"> 
+				<h1>赞赏作者</h1> 
+			</div> 
+			<h3>感谢您对华夏兵棋的支持！</h3> 
+			<p>您的赞赏将激励我们继续创作更好的内容。以下是几种付款方式供您选择：</p> 
+			<p>点击图片进行放大</p> 
+			<div class="payment-methods"> 
+				<div class="payment-card" onclick="openFullscreen('1.jpg')"> 
+					<img src="1.jpg" alt="微信赞赏码"> 
+					<p>微信赞赏</p> 
+				</div> 
+				<div class="payment-card" onclick="openFullscreen('2.jpg')"> 
+					<img src="2.jpg" alt="支付宝收款码"> 
+					<p>支付宝收款</p> 
+				</div> 
+				<div class="payment-card" onclick="openFullscreen('3.jpg')"> 
+					<img src="3.jpg" alt="QQ收款码"> 
+					<p>QQ收款</p> 
+				</div> 
+			</div> 
+			<div class="rank-section"> 
+				<h3>赞赏榜单</h3> 
+				<p>以下是所有用户的赞赏榜单（由衷的感谢以下所有人的支持）：</p> 
+				<table class="rank-table"> 
+					<thead> 
+						<tr> 
+							<th>序号</th> 
+							<th>用户名</th> 
+							<th>赞赏金额（元）</th> 
+						</tr> 
+					</thead> 
+					<tbody> 
+						<tr> 
+							<td>1</td> 
+							<td>gyf</td> 
+							<td>20.00</td> 
+						</tr> 
+					</tbody> 
+				</table> 
+			</div> 
+			<div class="update-notice"> 
+				<p>注意：赞赏榜单榜每周日午12点左右更新，感谢您的支持！</p> 
+			</div> 
+			<a href="index.html" class="back-btn">返回首页</a> 
+		</div> 
+		<div class="fullscreen" id="fullscreen"> 
+			<img src="" alt="全屏图片" id="fullscreen-img"> 
+			<div class="fullscreen-close" onclick="closeFullscreen()">
+				 × 
+			</div> 
+		</div> 
+		<script>
+		function openFullscreen(imgSrc) {
+			document.getElementById('fullscreen-img').src = imgSrc;
+			document.getElementById('fullscreen').style.display = 'flex';
+		}
+
+		function closeFullscreen() {
+			document.getElementById('fullscreen').style.display = 'none';
+		}
+	</script>  
+	</body>
+</html>
